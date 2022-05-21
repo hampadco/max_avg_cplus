@@ -1,0 +1,60 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() 
+{
+	fstream a;
+	string name;
+	a.open("info.txt",ios::out);
+	
+	for(int i=0;i<=2;i++)
+	{
+		cout<<"please enter name"<<endl;
+		cin>>name;
+		
+		a<<name<<endl;
+		
+	}
+	
+	
+	string s,r;
+	cout<<" search"<<endl;
+	cin>>s;
+	
+	cout<<"replace"<<endl;
+	cin>>r;
+	
+	ifstream m("info.txt");
+	fstream temp;
+	temp.open("temp.txt",ios::out);
+	
+	while(m>>name)
+	{
+		if(name==s)
+		{
+			temp<<r<<endl;
+		}else
+		{
+			temp<<name<<endl;
+		}
+		
+
+		}
+		
+		
+	ifstream w("temp.txt")	;
+	while(w>>name)
+	{
+		a<<name<<endl;
+		
+		}	
+		
+	
+	
+	
+	
+	
+	
+	return 0;
+}
